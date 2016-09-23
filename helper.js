@@ -437,7 +437,7 @@ function loadPage(id, qlik) {
     $('.container').html(charts[id].template);
 
     paramsObject.qlik = qlik;
-    paramsObject.params.setOnError(function (error) {
+    paramsObject.qlik.setOnError(function (error) {
         if (!error.code) {
             // Когда перезагружается qlik
             return false;
