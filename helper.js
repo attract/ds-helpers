@@ -465,7 +465,7 @@ function loadPage(id, qlik) {
     //var app = qlik.openApp('35dbc9d0-b865-4e5d-afa8-b83d60871769', config);
 
     if(paramsObject.params.uniqId) {
-        parent.$('body').trigger(paramsObject.params.uniqId);
+        //parent.$('body').trigger(paramsObject.params.uniqId);
         window.parent.postMessage("LOAD", 'http://julius.invoice');
     }
 
