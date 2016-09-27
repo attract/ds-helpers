@@ -469,7 +469,7 @@ function loadPage(id, qlik) {
 
 function fitChart() {
     var chart  = $('.qlik_chart');
-    var width  = (paramsObject.params.width || $('body').width()) - 215;
+    var width  = (paramsObject.params.width || $('body').width()) - $('.filter_block').width();
     var height = (paramsObject.params.height || $('body').height()) - 115;
     if (height < $('.filter_block').height()) {
         height = $('.filter_block').height();
