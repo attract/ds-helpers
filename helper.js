@@ -466,6 +466,7 @@ function loadPage(id, qlik) {
 
     if(paramsObject.params.uniqId) {
         parent.$('body').trigger(paramsObject.params.uniqId);
+        window.parent.postMessage("LOAD", 'http://julius.invoice');
     }
 
     //create cubes and lists -- inserted here --
