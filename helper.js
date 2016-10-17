@@ -480,7 +480,9 @@ function loadPage(id, qlik) {
         fitChart();
 
         charts[id].init(function() {
-            if(paramsObject.params.uniqId) {
+            var id = paramsObject.params.uniqId ?: paramsObject.params.appId;
+
+            if(id) {
                 //parent.$('body').trigger(paramsObject.params.uniqId);
                 window.parent.postMessage("LOAD_" + paramsObject.params.uniqId, '*');
                 console.log('send load ' + paramsObject.params.uniqId);
