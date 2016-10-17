@@ -231,7 +231,7 @@ var paramsObject = {
 var charts = {};
 charts[QLIK_CHART_SELLED_REPORT]     = {
     template: htmlParts[QLIK_CHART_SELLED_REPORT],
-    init    : function () {
+    init    : function (callback) {
         //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
 
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
@@ -256,11 +256,15 @@ charts[QLIK_CHART_SELLED_REPORT]     = {
             $('[name="nds_type"]:checked').click();
             $('#nds_radio_button').show();
         });
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 charts[QLIK_CHART_TURNOVER_REPORT]   = {
     template: htmlParts[QLIK_CHART_TURNOVER_REPORT],
-    init    : function () {
+    init    : function (callback) {
         //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
 
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
@@ -301,11 +305,15 @@ charts[QLIK_CHART_TURNOVER_REPORT]   = {
             $('[name="type_plot"]:checked').click();
             $('#type_radio_button').show();
         });
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 charts[QLIK_CHART_VORONKA_REPORT]    = {
     template: htmlParts[QLIK_CHART_VORONKA_REPORT],
-    init    : function () {
+    init    : function (callback) {
         //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
 
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
@@ -347,11 +355,15 @@ charts[QLIK_CHART_VORONKA_REPORT]    = {
             $('[name="type_plot"]:checked').click();
             $('#type_radio_button').show();
         });
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 charts[QLIK_CHART_DEBIT_CREDIT]      = {
     template: htmlParts[QLIK_CHART_DEBIT_CREDIT],
-    init    : function () {
+    init    : function (callback) {
         //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
 
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
@@ -364,11 +376,15 @@ charts[QLIK_CHART_DEBIT_CREDIT]      = {
         app.getObject('QVvendors', 'ZXhGGJ');
 
         app.getObject('QV01', '8facec66-e28b-4901-b1be-17b5495b532d');
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 charts[QLIK_CHART_NDS_REPORT]        = {
     template: htmlParts[QLIK_CHART_NDS_REPORT],
-    init    : function () {
+    init    : function (callback) {
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
         //get objects -- inserted here --
         app.getObject('QV03', 'eUScwPh');
@@ -407,11 +423,15 @@ charts[QLIK_CHART_NDS_REPORT]        = {
             $('[name="type_plot"]:checked').click();
             $('#type_radio_button').show();
         });
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 charts[QLIK_CHART_AVG_CHEQUE_REPORT] = {
     template: htmlParts[QLIK_CHART_AVG_CHEQUE_REPORT],
-    init    : function () {
+    init    : function (callback) {
         //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
 
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
@@ -430,6 +450,10 @@ charts[QLIK_CHART_AVG_CHEQUE_REPORT] = {
         var COUNT_PLOT = 'eb8aa8bc-13f1-44c0-a027-d1335777e213';
 
         //app.getObject('QV04','weJC');
+
+        if(callback && typeof callback === 'function') {
+            callback();
+        }
     }
 };
 
@@ -455,7 +479,18 @@ function loadPage(id, qlik) {
     if (paramsObject.params.appId) {
         fitChart();
 
-        charts[id].init();
+        charts[id].init(function() {
+            if(paramsObject.params.uniqId) {
+                //parent.$('body').trigger(paramsObject.params.uniqId);
+                window.parent.postMessage("LOAD_" + paramsObject.params.uniqId, '*');
+                console.log('send load ' + paramsObject.params.uniqId);
+
+                $(document).on('click', function () {
+                    window.parent.postMessage("CLICK_" + paramsObject.params.uniqId, '*');
+                    console.log('send click ' + paramsObject.params.uniqId);
+                })
+            }
+        });
 
     } else {
         document.body.textContent = 'Error! appId is not specified!';
@@ -463,17 +498,6 @@ function loadPage(id, qlik) {
     //callbacks -- inserted here --
     //open apps -- inserted here --
     //var app = qlik.openApp('35dbc9d0-b865-4e5d-afa8-b83d60871769', config);
-
-    if(paramsObject.params.uniqId) {
-        //parent.$('body').trigger(paramsObject.params.uniqId);
-        window.parent.postMessage("LOAD_" + paramsObject.params.uniqId, '*');
-        console.log('send load ' + paramsObject.params.uniqId);
-
-        $(document).on('click', function () {
-            window.parent.postMessage("CLICK_" + paramsObject.params.uniqId, '*');
-            console.log('send click ' + paramsObject.params.uniqId);
-        })
-    }
 
     //create cubes and lists -- inserted here --
 }
