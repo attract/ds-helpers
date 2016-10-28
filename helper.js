@@ -375,7 +375,7 @@ charts[QLIK_CHART_DEBIT_CREDIT]      = {
         app.getObject('QV03', 'JPFHXJ');
         app.getObject('QVvendors', 'ZXhGGJ');
 
-        app.getObject('QV01', '8facec66-e28b-4901-b1be-17b5495b532d');
+        app.getObject('QV01', 'akStYN');
 
         if(callback && typeof callback === 'function') {
             callback();
@@ -392,7 +392,7 @@ charts[QLIK_CHART_NDS_REPORT]        = {
 
         var COUNT_PLOT = '46644ba1-f188-4005-90ac-3d0b9570644c';
         app.getObject('QV02', 'b551d1c4-0372-4a5a-99b9-aef99b763093');
-        app.getObject('QV01', '8facec66-e28b-4901-b1be-17b5495b532d');
+        app.getObject('QV01', 'wWKcDC');
 
         app.getObject('QVproducts', 'jwCaR');
         app.getObject('QVmanufacturers', 'WRRgCw');
