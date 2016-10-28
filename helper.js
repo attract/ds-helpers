@@ -430,7 +430,7 @@ charts[QLIK_CHART_AVG_CHEQUE_REPORT] = {
         app.getObject('QVmanufacturers', 'df268e04-0abf-469b-a414-bee79b3c9d4c');
         app.getObject('QVwarehouse', 'ca95e114-5ed8-4a82-83ad-bbb65208ae57');
         app.getObject('QV02', '800a9b0c-5ca0-467d-8688-b5f639be415c');
-        app.getObject('QV01', '6bd5e7d1-14a2-4f18-8d57-3ef5d0b92317');
+        app.getObject('QV01', 'bc63a321-02a4-4c6f-921d-f9fce2ff9b02');
 
         if(callback && typeof callback === 'function') {
             callback();
