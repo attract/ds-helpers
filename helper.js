@@ -275,8 +275,8 @@ charts[QLIK_CHART_TURNOVER_REPORT]   = {
         app.getObject('QV02', 'b551d1c4-0372-4a5a-99b9-aef99b763093');
         app.getObject('QV01', '8facec66-e28b-4901-b1be-17b5495b532d');
 
-        app.getObject('QVproducts', 'jwCaR');
-        app.getObject('QVmanufacturers', 'WRRgCw');
+        app.getObject('QVproducts', 'wPcnwwA');
+        app.getObject('QVmanufacturers', 'e96fd4a5-145d-452e-bf8c-baa0750d2111');
         //app.getObject('QV04','weJC');
 
         function showPlot() {
@@ -386,17 +386,9 @@ charts[QLIK_CHART_NDS_REPORT]        = {
     template: htmlParts[QLIK_CHART_NDS_REPORT],
     init    : function (callback) {
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
-        //get objects -- inserted here --
+
         app.getObject('QV03', 'eUScwPh');
-        app.getObject('QVwarehouse', 'NZceQu');
-
-        var COUNT_PLOT = '46644ba1-f188-4005-90ac-3d0b9570644c';
-        app.getObject('QV02', 'b551d1c4-0372-4a5a-99b9-aef99b763093');
         app.getObject('QV01', 'wWKcDC');
-
-        app.getObject('QVproducts', 'jwCaR');
-        app.getObject('QVmanufacturers', 'WRRgCw');
-        //app.getObject('QV04','weJC');
 
         function showPlot() {
             var type_plot = $('[name="type_plot"]:checked').val();
@@ -432,24 +424,13 @@ charts[QLIK_CHART_NDS_REPORT]        = {
 charts[QLIK_CHART_AVG_CHEQUE_REPORT] = {
     template: htmlParts[QLIK_CHART_AVG_CHEQUE_REPORT],
     init    : function (callback) {
-        //var app = qlik.openApp('f1e94e82-1059-4f8c-8e42-598e63261ce6', config);
-
         var app = paramsObject.qlik.openApp(paramsObject.params.appId, config);
-        //get objects -- inserted here --
+
         app.getObject('QV03', '93b6050b-2e41-4413-90b3-b21c358c193c');
-
-        app.getObject('QVmanufacturers', 'JyxE');
-        app.getObject('QVwarehouse', 'DremVjU');
-        app.getObject('QV02', 'YAUbT');
-
-        app.getObject('QV01', 'KhNu');
-        //
-        //
-        //
-
-        var COUNT_PLOT = 'eb8aa8bc-13f1-44c0-a027-d1335777e213';
-
-        //app.getObject('QV04','weJC');
+        app.getObject('QVmanufacturers', 'df268e04-0abf-469b-a414-bee79b3c9d4c');
+        app.getObject('QVwarehouse', 'ca95e114-5ed8-4a82-83ad-bbb65208ae57');
+        app.getObject('QV02', '800a9b0c-5ca0-467d-8688-b5f639be415c');
+        app.getObject('QV01', '6bd5e7d1-14a2-4f18-8d57-3ef5d0b92317');
 
         if(callback && typeof callback === 'function') {
             callback();
