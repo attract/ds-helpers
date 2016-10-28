@@ -238,7 +238,7 @@ charts[QLIK_CHART_SELLED_REPORT]     = {
         //get objects -- inserted here --
 
         app.getObject('QVmanager', 'PKPuG');
-        app.getObject('QVroles', 'rpYfCyJ');
+        app.getObject('QVroles', 'PgWvBw');
         app.getObject('QV02', '104b6e24-e78b-4a4e-8167-180bbea6e378');
         app.getObject('QVclients', 'GDdhpC');
 
