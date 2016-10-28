@@ -275,7 +275,7 @@ charts[QLIK_CHART_TURNOVER_REPORT]   = {
         app.getObject('QV02', 'b551d1c4-0372-4a5a-99b9-aef99b763093');
         app.getObject('QV01', '8facec66-e28b-4901-b1be-17b5495b532d');
 
-        app.getObject('QVproducts', 'wPcnwwA');
+        app.getObject('QVproducts', '5f2cda22-f3a0-4f4a-a097-d9a3c72dd002');
         app.getObject('QVmanufacturers', 'e96fd4a5-145d-452e-bf8c-baa0750d2111');
         //app.getObject('QV04','weJC');
 
